@@ -1,0 +1,74 @@
+@use "abstracts/functions";
+@use "abstracts/variables";
+@use "abstracts/mixins";
+@use "abstracts/colors";
+
+.portfolio-achievements-section {
+  background: #f7f7f7;
+}
+.portfolio-card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  text-decoration: none;
+  padding: 20px 0 0;
+  background: colors.$accent-light-color;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  &:hover {
+    transform: translateY(-6px);
+  }
+  &::before {
+    content: "";
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    top: -40%;
+    left: -20%;
+    border-radius: 50%;
+    border: 35px solid rgba(255, 62, 244, 0.15);
+    transition: all 0.8s ease;
+    filter: blur(0.5rem);
+    z-index: 0;
+  }
+  &:hover::before {
+    width: 140px;
+    height: 140px;
+    top: -25%;
+    left: 50%;
+    filter: blur(0);
+  }
+  .portfolio-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 0 0 15px 15px;
+  }
+  .portfolio-content {
+    padding: 15px;
+    display: flex;
+    color: #0e1f51;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+
+    .portfolio-title {
+      font-family: "Raleway-Bold";
+      font-size: functions.rem(20);
+      color: colors.$taglines-color;
+      margin-bottom: 10px;
+    }
+
+    .portfolio-description {
+      font-family: "Inter-Regular";
+      font-size: functions.rem(16);
+      color: #000000;
+      line-height: 26px;
+    }
+  }
+}

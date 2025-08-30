@@ -1,0 +1,140 @@
+@use "abstracts/functions";
+@use "abstracts/variables";
+@use "abstracts/mixins";
+@use "abstracts/colors";
+
+.services-team-metrics {
+  background-color: #f7f7f7;
+  .team-members-section {
+    background: colors.$accent-light-color;
+    border-radius: 10px;
+  }
+  i {
+    margin-right: functions.rem(10);
+    color: colors.$dark-gray;
+  }
+
+  .key-metrics-card {
+    background-color: colors.$accent-light-color;
+    border-radius: functions.rem(8);
+    box-shadow: 0 0 functions.rem(10) rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    text-align: center;
+    display: block;
+    height: 100%;
+    width: 100%;
+    padding: functions.rem(30);
+    cursor: default;
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 functions.rem(15) rgba(0, 0, 0, 0.12);
+    }
+
+    i {
+      color: colors.$primary-color;
+      font-size: functions.rem(24);
+      margin-bottom: functions.rem(10);
+      color: colors.$taglines-color;
+    }
+
+    .count {
+      font-size: functions.rem(28);
+      font-weight: 700;
+      color: colors.$dark-gray;
+      color: colors.$taglines-color;
+      font-family: "Raleway-Bold";
+    }
+
+    p {
+      font-size: functions.rem(16);
+      color: colors.$text-color;
+      font-family: "Raleway-SemiBold";
+    }
+  }
+
+  .team-card {
+    transition: all 0.3s ease;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    align-items: center;
+    row-gap: functions.rem(3);
+
+    .team-photo {
+      border-radius: 15px;
+      margin-bottom: functions.rem(13);
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .name {
+      font-size: functions.rem(20);
+      font-weight: 600;
+      font-family: "Raleway-Bold";
+      color: colors.$taglines-color;
+    }
+
+    .role {
+      font-size: functions.rem(14);
+      color: colors.$text-color;
+      font-family: "Raleway-SemiBold";
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      column-gap: 10px;
+      a {
+        margin: functions.rem(8) 0;
+        font-size: functions.rem(18);
+        color: colors.$dark-gray;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: rgb(107, 106, 106);
+        }
+      }
+    }
+  }
+}
+
+@include mixins.responsive("lg-devices") {
+  .services-team-metrics {
+    .key-metrics-card {
+      padding: functions.rem(20);
+    }
+  }
+}
+
+@include mixins.responsive("md-devices") {
+  .services-team-metrics {
+    .key-metrics-card {
+      .count {
+        font-size: functions.rem(22);
+      }
+      p {
+        font-size: functions.rem(14);
+      }
+    }
+  }
+}
+
+@include mixins.responsive("sm-devices") {
+  .services-team-metrics {
+    .team-card {
+      .name {
+        font-size: functions.rem(15);
+      }
+      .role {
+        font-size: functions.rem(14);
+      }
+    }
+    .key-metrics-card {
+      width: 80%;
+      margin: auto;
+    }
+  }
+}

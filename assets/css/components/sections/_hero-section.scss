@@ -1,0 +1,72 @@
+@use "abstracts/functions";
+@use "abstracts/variables";
+@use "abstracts/mixins";
+@use "abstracts/colors";
+
+.hero-section {
+  padding: functions.rem(50) 0;
+  .hero-left {
+    .hero-tagline {
+      font-family: "Raleway-Bold";
+      font-size: functions.rem(24);
+      color: colors.$taglines-color;
+    }
+    h1 {
+      font-family: "Raleway-Bold";
+      font-size: functions.rem(48);
+      margin-bottom: 10px;
+      span {
+        color: colors.$taglines-color;
+      }
+    }
+    p {
+      font-family: "Inter-Regular";
+      font-size: functions.rem(18);
+      line-height: 27px;
+      color: #333333;
+      margin-bottom: functions.rem(10);
+    }
+    .hero-btn {
+      margin-top: functions.rem(30);
+      .btn-view-more {
+        font-family: "Raleway-SemiBold";
+        padding: functions.rem(12) functions.rem(28);
+        background-color: colors.$taglines-color;
+        text-decoration: none;
+        color: colors.$accent-light-color;
+        font-size: functions.rem(16);
+        border: 2px solid transparent;
+        border-radius: 8px;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        &:hover {
+          border: 2px solid colors.$taglines-color;
+          background-color: transparent;
+          color: colors.$taglines-color;
+          text-decoration: underline colors.$taglines-color;
+        }
+      }
+    }
+  }
+}
+
+@include mixins.responsive("md-devices") {
+  .hero-section {
+    .hero-left {
+      text-align: center;
+      .hero-tagline {
+        font-size: functions.rem(18);
+      }
+      h1 {
+        font-size: functions.rem(36);
+      }
+      p {
+        font-size: functions.rem(16);
+      }
+    }
+    .hero-btn {
+      .btn-view-more {
+        font-size: functions.rem(14);
+      }
+    }
+  }
+}

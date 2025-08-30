@@ -1,0 +1,51 @@
+@use "abstracts/functions";
+@use "abstracts/variables";
+@use "abstracts/mixins";
+@use "abstracts/colors";
+
+.contact-form {
+  background-color: colors.$accent-light-color;
+  border-radius: functions.rem(12);
+  padding: functions.rem(32);
+  display: flex;
+  flex-direction: column;
+  row-gap: functions.rem(15);
+  align-items: baseline;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+
+  input,
+  textarea {
+    border-radius: 0.5rem;
+    border: 1px solid transparent;
+    padding: functions.rem(14);
+    background-color: #f7f7f7;
+    font-size: functions.rem(16);
+    width: 100%;
+  }
+
+  .send-btn {
+    background-color: colors.$taglines-color;
+    color: colors.$accent-light-color;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    padding: functions.rem(12) functions.rem(28);
+    font-weight: 500;
+    transition: 0.3s ease;
+    &:hover {
+      border: 2px solid colors.$taglines-color;
+      background-color: transparent;
+      color: colors.$taglines-color;
+      text-decoration: underline colors.$taglines-color;
+    }
+  }
+}
+
+@include mixins.responsive("lg-devices") {
+  .contact-form {
+    padding: functions.rem(20);
+    height: 100%;
+    .send-btn {
+      padding: functions.rem(10) functions.rem(16);
+    }
+  }
+}

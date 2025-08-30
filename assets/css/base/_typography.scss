@@ -1,0 +1,20 @@
+@use "abstracts/functions";
+@use "abstracts/variables";
+@use "abstracts/mixins";
+
+@font-face {
+  font-family: "Inter-Regular";
+  src: url(/assets/fonts/Inter_18pt-Regular.ttf);
+}
+@font-face {
+  font-family: "Raleway-Bold";
+  src: url(/assets/fonts/Raleway-Bold.ttf);
+}
+@font-face {
+  font-family: "Raleway-Regular";
+  src: url(/assets/fonts/Raleway-Regular.ttf);
+}
+@font-face {
+  font-family: "Raleway-SemiBold";
+  src: url(/assets/fonts/Raleway-SemiBold.ttf);
+}

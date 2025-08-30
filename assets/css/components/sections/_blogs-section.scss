@@ -1,0 +1,115 @@
+@use "abstracts/functions";
+@use "abstracts/variables";
+@use "abstracts/mixins";
+@use "abstracts/colors";
+
+.blog-timeline-section {
+  background: #f7f7f7;
+
+  .section-subtitle {
+    font-size: functions.rem(16);
+    color: #555;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .blog-timeline {
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 23px;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background-color: colors.$taglines-color;
+    }
+
+    .blog-entry {
+      position: relative;
+      padding-left: 62px;
+      margin-bottom: functions.rem(45);
+
+      .timeline-icon {
+        position: absolute;
+        top: 5px;
+        left: 10px;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 14px;
+        background-color: colors.$taglines-color;
+        color: #fffdfd;
+        border: 3px solid colors.$accent-light-color;
+        border-radius: 50%;
+        box-shadow: 0 0 0 3px colors.$taglines-color;
+        z-index: 1;
+      }
+
+      .blog-meta {
+        font-size: functions.rem(14);
+        color: #858585;
+        margin-bottom: functions.rem(12);
+      }
+
+      h4 {
+        color: #0e1f51;
+        font-size: functions.rem(24);
+        font-family: "Raleway-Bold";
+        margin-bottom: functions.rem(10);
+      }
+
+      p {
+        color: #555;
+        margin-bottom: functions.rem(12);
+      }
+
+      .blog-link {
+        color: colors.$taglines-color;
+        font-weight: 500;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+@include mixins.responsive("lg-devices") {
+  .blog-timeline-section {
+    .blog-timeline {
+      .blog-entry {
+        h4 {
+          font-size: functions.rem(22);
+        }
+      }
+    }
+  }
+}
+
+@include mixins.responsive("sm-devices") {
+  .blog-timeline-section {
+    .blog-timeline {
+      &::before {
+        top: 52px;
+        bottom: 42px;
+      }
+      .blog-entry {
+        padding-left: functions.rem(55);
+        h4 {
+          font-size: functions.rem(18);
+        }
+        .timeline-icon {
+          font-size: functions.rem(12);
+          width: 28px;
+          height: 28px;
+        }
+      }
+    }
+  }
+}

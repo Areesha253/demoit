@@ -1,0 +1,44 @@
+@use "abstracts/functions";
+@use "abstracts/variables";
+@use "abstracts/mixins";
+@use "abstracts/colors";
+
+html,
+body {
+  font-family: "Inter-Regular";
+}
+.site-logo {
+  font-family: "Raleway-Bold";
+  font-size: functions.rem(30);
+  color: colors.$taglines-color;
+}
+.tagline {
+  font-family: "Raleway-Bold";
+  font-size: functions.rem(24);
+  color: colors.$taglines-color;
+  line-height: 27px;
+  margin-bottom: functions.rem(10);
+}
+.section-title {
+  font-family: "Raleway-Bold";
+  color: #0e1f51;
+  font-size: functions.rem(40);
+}
+
+@include mixins.responsive("md-devices") {
+  .tagline {
+    font-size: functions.rem(18);
+  }
+  .section-title {
+    font-size: functions.rem(28);
+  }
+}
+
+@include mixins.responsive("sm-devices") {
+  .tagline {
+    font-size: functions.rem(16);
+  }
+  .section-title {
+    font-size: functions.rem(22);
+  }
+}

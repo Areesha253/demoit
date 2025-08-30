@@ -1,0 +1,36 @@
+@use "abstracts/functions";
+@use "abstracts/variables";
+@use "abstracts/mixins";
+@use "abstracts/colors";
+
+header {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  background: colors.$accent-light-color;
+}
+.my-navbar {
+  .nav-menu {
+    border: none;
+    &:focus {
+      box-shadow: none;
+    }
+  }
+  li {
+    a {
+      font-family: "Raleway-SemiBold";
+      font-size: functions.rem(16);
+      color: #000000;
+      transition: color 0.3s ease;
+      &:hover {
+        color: colors.$taglines-color;
+      }
+    }
+  }
+}
+@include mixins.responsive("md-devices") {
+  .navbar-nav {
+    align-items: center;
+  }
+  .site-logo {
+    font-size: functions.rem(22);
+  }
+}
